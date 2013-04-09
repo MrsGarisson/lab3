@@ -7,8 +7,7 @@
 
 int main(void) {
 	struct sockaddr_in addr;
-	  int sock,n =0;
-	  char recvBuff[256];
+	  int sock;
 	  const char host[] = "127.0.0.1";
 
 	  sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -24,20 +23,7 @@ int main(void) {
 	     return 1;
 	     }
 
-	  while ( (n = read(sock, recvBuff, sizeof(recvBuff)-1)) > 0) {
-	          recvBuff[n] = 0;
-	          if(fputs(recvBuff, stdout) == EOF) {
-	              printf("End of file\n");
-	          }
-	      }
-
-	      if(n < 0) {
-	    	  perror("read");
-	    	  return 2;
-	      }
-
 	  close(sock);
 
 	  return 0;
 }
-
