@@ -6,9 +6,13 @@
 #include <stdlib.h>
 #include <resolv.h>
 
+#include <pthread.h>
+#include "myThread.h"
+
+#define N 5
 int main()
 {
-  int sock, connection;
+  int sock,i;
   struct sockaddr_in addr;
 
   if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
@@ -31,7 +35,15 @@ int main()
     return 2;
     }
 
+  for (i=0;i<N;i+=1)
+  	{
+  		sock = accept(sock, NULL, NULL);
+  		pthread_t thread;
+  		pthread_create(&thread, NULL, myThread, (void*) sock);
+  	}
+
  close(sock);
 
  return 0;
 }
+
