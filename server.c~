@@ -46,7 +46,7 @@ int main()
 			mes.size = file_to_send.size;
   		mes.index = accept(sock, NULL, NULL);
   		pthread_t thread;
-  		pthread_create(&thread, NULL, my_thread, (void*) &mes);
+  		pthread_create(&thread, NULL, myThread, (void*) &mes);
   	}
 
  close(sock);

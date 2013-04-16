@@ -9,7 +9,7 @@ client-clean:
 	rm -rf client
 
 server:
-	$(CROSS_COMPILE)gcc -pthread -o server my_thread.c file_reader.c server.c 
+	$(CROSS_COMPILE)gcc -pthread -o server myThread.c fileReader.c server.c 
 
 server-clean:
 	rm -rf server

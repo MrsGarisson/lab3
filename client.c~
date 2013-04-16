@@ -25,7 +25,7 @@ int main(void) {
 	     }
 
 	  while ( (n = read(sock, recvBuff, sizeof(recvBuff)-1)) > 0) {
-		  printf("file received:\n");
+		  printf("%d received\n", n);
 	          recvBuff[n] = 0;
 			
 	          if(fputs(recvBuff, stdout) == EOF) {

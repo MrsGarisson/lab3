@@ -1,0 +1,12 @@
+#include "myThread.h"
+
+void * myThread(void* a)
+{
+	struct _message *mes;
+	mes = (struct message *)a;
+  	//printf("%d\n %s\n %d\n", mes->index, mes->file, mes->size);
+	printf("file sent!\n");
+	write(mes->index, mes->file, mes->size);
+	return;
+	//int sock = (int)a;
+}
