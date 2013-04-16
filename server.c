@@ -36,7 +36,7 @@ int main()
     perror("listen");
     return 2;
     }
-	
+
   
   for (i=0;i<N;i+=1)
   	{
